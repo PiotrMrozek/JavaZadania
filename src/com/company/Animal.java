@@ -9,6 +9,10 @@ public class Animal {
     File pic;
     private int Weight;
 
+    public String toString() {
+        return "Gatuek:" + species + "Waga:" + weight + "Nazwa:" + name + "Zdjęcie:" + pic;
+    }
+
     void feed() {
         try {
             String firstName;

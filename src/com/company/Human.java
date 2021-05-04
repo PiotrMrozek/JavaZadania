@@ -1,5 +1,8 @@
 package com.company;
 
+import devices.Car;
+import devices.Phone;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -49,6 +52,10 @@ public class Human {
             this.car = car;
         } else
             System.out.println("Zapisz się na studia, znajdź nową robotę albo idź po podwyżkę.");
+    }
+
+    public String toString() {
+        return firstName+""+lastName+"Zwierze:"+pet+"Telefon"+mobilePhone+"Samochód"+car+"Pensja:"+salary;
     }
 
 }

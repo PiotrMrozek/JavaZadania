@@ -1,5 +1,8 @@
 package com.company;
 
+import devices.Car;
+import devices.Phone;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -29,9 +32,10 @@ public class Main {
 
             //Zadanie 2
 
-            Car passat = new Car("Passat", "vw");
+            Car passat = new Car(1,"Passat","vw");
             passat.color = "red";
-            passat.millage = 100000.0;
+            passat.horsepower = 372;
+            passat.mileage = 100000.0;
             passat.engineVolume = 1.9;
             passat.value = 3000.0;
 
@@ -46,7 +50,21 @@ public class Main {
 
             me.setCar(passat);
 
+            Car passat2 = new Car(1,"Passat","vw");
+            passat2.color = "red";
+            passat2.horsepower = 372;
+            passat2.mileage = 100000.0;
+            passat2.engineVolume = 1.9;
+            passat2.value = 3000.0;
 
+            Phone phone = new Phone("Nokia", "3310", 1.5, "Series30+");
 
+            System.out.println("Comparison:" + (passat == passat2));
+            System.out.println("overrided equals():" + passat.equals(passat2));
+
+            System.out.println(me);
+            System.out.println(passat);
+            System.out.println(phone);
+            System.out.println(dog);
     }
 }
