@@ -33,17 +33,18 @@ public class Main {
             passat.color = "red";
             passat.millage = 100000.0;
             passat.engineVolume = 1.9;
+            passat.value = 3000.0;
 
             System.out.println("takie auto: " + passat.producer + " "+ passat.model);
 
-            me.car = passat;
-            System.out.println("Mam auto: " + me.car.model);
 
             me.setSalary(3500.0);
             me.getSalary();
 
             me.setSalary(1900.0);
             me.getSalary();
+
+            me.setCar(passat);
 
 
 
