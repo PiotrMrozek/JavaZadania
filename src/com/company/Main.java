@@ -39,6 +39,12 @@ public class Main {
             me.car = passat;
             System.out.println("Mam auto: " + me.car.model);
 
+            me.setSalary(3500.0);
+            me.getSalary();
+
+            me.setSalary(1900.0);
+            me.getSalary();
+
 
 
     }
