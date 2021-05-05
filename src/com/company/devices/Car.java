@@ -1,22 +1,21 @@
-package devices;
+package com.company.devices;
 
-public class Car {
+public class Car extends Device {
     public final int id;
-    public final String model;
-    public final String producer;
+
     public String color;
     public Double mileage;
     public Double engineVolume;
     public Double value;
     public int horsepower;
 
-    public Car (int id, String model, String producer){
-        this.model = model;
+    public Car(String producer, String model, int yearOfProduction, int id) {
+        super(producer, model, yearOfProduction);
         this.id = id;
-        this.producer = producer;
+
     }
     public String toString() {
-        return id+" "+producer+" "+model+" "+mileage+ " " + horsepower+" "+color+" "+ engineVolume+" "+value;
+        return id+" "+producer+" "+model+" "+yearOfProduction+" "+mileage+ " " + horsepower+" "+color+" "+ engineVolume+" "+value;
     }
     @Override
     public boolean equals(Object o) {

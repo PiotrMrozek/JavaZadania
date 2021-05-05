@@ -1,7 +1,7 @@
 package com.company;
 
-import devices.Car;
-import devices.Phone;
+import com.company.devices.Car;
+import com.company.devices.Phone;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
