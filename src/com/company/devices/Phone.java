@@ -15,4 +15,8 @@ public class Phone extends Device{
     public String toString() {
         return producer+" "+model+" "+screenSize+" "+operatingSystem+" "+yearOfProduction;
     }
+    @Override
+    public void turnOn() {
+        System.out.println("Telefon:" + producer + " " + model + " włącza się.");
+    }
 }

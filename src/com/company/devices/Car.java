@@ -18,6 +18,11 @@ public class Car extends Device {
         return id+" "+producer+" "+model+" "+yearOfProduction+" "+mileage+ " " + horsepower+" "+color+" "+ engineVolume+" "+value;
     }
     @Override
+    public void turnOn() {
+        System.out.println("Samochód:" + producer + " " + model + "został odpalony");
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
