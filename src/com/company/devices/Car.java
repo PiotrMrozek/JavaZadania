@@ -1,6 +1,10 @@
 package com.company.devices;
 
-public class Car extends Device {
+
+    import com.company.Human;
+    import com.company.salleable;
+    public class Car extends Device implements salleable {
+
     public final int id;
 
     public String color;
@@ -40,6 +44,23 @@ public class Car extends Device {
     @Override
     public int hashCode() {
         return id;
+    }
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+        if (seller.getCar() != this) {
+            System.out.println("Przecież nie masz tego samochodu");
+        } else if (buyer.cash < price) {
+            System.out.println("Nie stać go na ten samochód");
+        } else if (seller == buyer) {
+            System.out.println("Sobie nie możesz go sprzedać!");
+        } else {
+            buyer.cash -= price;
+            seller.cash += price;
+            buyer.setCar(seller.getCar());
+            seller.takeCar();
+            System.out.println("Kupiłeś samochód za: " + price);
+        }
     }
 
 }

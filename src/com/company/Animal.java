@@ -2,7 +2,7 @@ package com.company;
 
 import java.io.File;
 
-public class Animal {
+public class Animal implements salleable {
     String species;
     Double weight;
     String name;
@@ -22,8 +22,8 @@ public class Animal {
                 System.out.println("Zwierze zostało nakarmione " + this.name);
             this.weight += 1.0;
         }
-        catch (Exception Feedex) {
-            System.err.println(Feedex);
+        catch (Exception feedex) {
+            System.err.println(feedex);
         }
     }
     void takeForAWalk() {
@@ -44,8 +44,24 @@ public class Animal {
                 System.out.println(this.name + "Został już wyprowadzony");
         }
 
-        catch (Exception Walkex) {
-            System.err.println(Walkex);
+        catch (Exception walkex) {
+            System.err.println(walkex);
+        }
+    }
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+        if (seller.pet != this) {
+            System.out.println("Zwierze nie należy do Ciebie!");
+        } else if (buyer.cash < price) {
+            System.out.println("Nie stać go na niego!");
+        } else if (seller == buyer) {
+            System.out.println("Nie możesz kupić swojego zwierzaka!");
+        } else {
+            buyer.cash -= price;
+            seller.cash += price;
+            buyer.pet = seller.pet;
+            seller.pet = null;
+            System.out.println("Zwierze zostało sprzedanie cena to:" + price);
         }
     }
 }

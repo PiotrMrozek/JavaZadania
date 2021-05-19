@@ -6,13 +6,13 @@ import com.company.devices.Phone;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Human {
+    public class Human implements salleable{
     String firstName;
     String lastName;
     Animal pet;
-    Phone mobilePhone;
+    public Phone mobilePhone;
     private Car car;
-
+    public Double cash;
     private Double salary;
 
     public Double getSalary(){
@@ -56,6 +56,15 @@ public class Human {
 
     public String toString() {
         return firstName+""+lastName+"Zwierze:"+pet+"Telefon"+mobilePhone+"Samochód"+car+"Pensja:"+salary;
+    }
+    public void takeCar() {
+        this.car = null;
+    }
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+
+        System.out.println("Nie można handlować ludźmi!");
     }
 
 }

@@ -16,21 +16,9 @@ public class Main {
             Human me = new Human();
             me.firstName = "Piotr";
             me.pet = dog;
+            me.setSalary(6000.0);
 
 
-            System.out.println(dog.name);
-            System.out.println(dog.weight);
-            me.pet.feed();
-            System.out.println(dog.weight);
-            me.pet.takeForAWalk();
-            me.pet.takeForAWalk();
-            me.pet.takeForAWalk();
-            System.out.println(dog.weight);
-            me.pet.takeForAWalk();
-            me.pet.feed();
-
-
-            //Zadanie 2
 
             Car passat = new Car("vw","Passat",1999,1);
             passat.color = "red";
@@ -39,14 +27,6 @@ public class Main {
             passat.engineVolume = 1.9;
             passat.value = 3000.0;
 
-           // System.out.println("takie auto: " + passat.producer + " "+ passat.model);
-
-
-            me.setSalary(3500.0);
-            me.getSalary();
-
-            me.setSalary(1900.0);
-            me.getSalary();
 
             me.setCar(passat);
 
@@ -62,9 +42,30 @@ public class Main {
             System.out.println("Comparison:" + (passat == passat2));
             System.out.println("overrided equals():" + passat.equals(passat2));
 
-            System.out.println(me);
-            System.out.println(passat);
-            System.out.println(phone);
-            System.out.println(dog);
+            me.mobilePhone = phone;
+            me.cash = 100.0;
+            Human ziom = new Human();
+            ziom.cash = 1500.0;
+
+            phone.sell(me, me, 450.0);
+            phone.sell(ziom, me, 450.0);
+            phone.sell(me, ziom, 8093.0);
+            phone.sell(me, ziom, 450.0);
+
+            System.out.println(me.mobilePhone);
+            System.out.println(ziom.mobilePhone);
+
+            dog.sell(me, ziom, 400.0);
+            System.out.println(me.pet);
+            System.out.println(ziom.pet);
+
+            Human Piotr = new Human();
+            Piotr.sell(me, ziom, 150.0);
+
+            passat.sell(me, ziom, 3200.0);
+            System.out.println(me.getCar());
+            System.out.println(ziom.getCar());
+
+
     }
 }
