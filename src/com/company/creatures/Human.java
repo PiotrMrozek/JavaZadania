@@ -1,19 +1,27 @@
-package com.company;
+package com.company.creatures;
 
 import com.company.devices.Car;
 import com.company.devices.Phone;
+import com.company.salleable;
+
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-    public class Human implements salleable{
-    String firstName;
-    String lastName;
-    Animal pet;
+    public class Human implements salleable {
+        public final String firstName;
+        public final String lastName;
+        public Pet pet;
+
     public Phone mobilePhone;
     private Car car;
     public Double cash;
     private Double salary;
+
+        public Human(String firstName, String lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
 
     public Double getSalary(){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
