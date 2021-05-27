@@ -13,33 +13,40 @@ package com.company.devices;
     public int horsepower;
 
         public Car(String producer, String model, int yearOfProduction, Double value) {
-            super(producer, model, yearOfProduction);
-        this.value = value;
+            super(producer, model, yearOfProduction, value);
 
     }
-    //public String toString() {
-        //return id+" "+producer+" "+model+" "+yearOfProduction+" "+mileage+ " " + horsepower+" "+color+" "+ engineVolume+" "+value;
-
+        public String toString() {
+            return "\nCar {\n" +
+                    "   producer = '" + producer + '\'' +
+                    ",\n   model = '" + model + '\'' +
+                    ",\n   engineVolume = " + engineVolume +
+                    ",\n   value = " + value +
+                    ",\n   yearOfProduction = " + yearOfProduction +
+                    ",\n   horsepower = " + horsepower +
+                    ",\n   color = " + color +
+                    "\n}\n";
+        }
     @Override
     public void turnOn() {
         System.out.println("Samochód:" + producer + " " + model + "został odpalony");
     }
 
     @Override
-    public void sell(Human seller, Human buyer, Double price) {
-        if (seller.getCar() != this) {
-            System.out.println("Przecież nie masz tego samochodu");
-        } else if (buyer.cash < price) {
-            System.out.println("Nie stać go na ten samochód");
-        } else if (seller == buyer) {
-            System.out.println("Sobie nie możesz go sprzedać!");
-        } else {
-            buyer.cash -= price;
-            seller.cash += price;
-            buyer.setCar(seller.getCar());
-            seller.takeCar();
-            System.out.println("Kupiłeś samochód za: " + price);
+    public void sell(Human seller, Human buyer, Double price) throws Exception {
+          if (seller.hasCar(this)) {
+            throw new Exception("Sprzedający nie ma tego samochodu");
+        } if (buyer.hasFreeSpace()) {
+            throw new Exception("Kupujący nie ma miejsca w garażu");
+        } if (buyer.cash < price){
+            throw new Exception("Nie ma tylu pieniędzy");
         }
-    }
+          seller.removeCar(this);
+          buyer.addCar(this);
+          seller.cash += price;
+          buyer.cash -= price;
+          System.out.println("Sprzedano!");
+        }
+
         public abstract void refuel();
 }

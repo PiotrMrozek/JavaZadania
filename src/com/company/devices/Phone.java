@@ -5,6 +5,7 @@ package com.company.devices;
     import java.net.MalformedURLException;
     import java.net.URL;
     import java.util.List;
+    import java.time.LocalDate;
 
     public class Phone extends Device implements salleable {
 
@@ -14,16 +15,23 @@ package com.company.devices;
         static final String DEFAULT_SERVER_ADDRESS = "111.0.0.1";
         static final String DEFAULT_VERSION_NAME = "latest";
 
-    public Phone(String producer, String model,int yearOfProduction, Double screenSize, String operatingSystem) {
+    public Phone(String producer, String model,int yearOfProduction, Double value, Double screenSize, String operatingSystem) {
 
-        super(producer, model, yearOfProduction);
+        super(producer, model, yearOfProduction, value);
 
         this.screenSize = screenSize;
         this.operatingSystem = operatingSystem;
     }
-    public String toString() {
-        return producer+" "+model+" "+screenSize+" "+operatingSystem+" "+yearOfProduction;
-    }
+        @Override
+        public String toString() {
+            return "Phone {" +
+                    "producer='" + producer + '\'' +
+                    ", model='" + model + '\'' +
+                    ", yearOfProduction=" + yearOfProduction +
+                    ", screenSize=" + screenSize +
+                    ", operatingSystem='" + operatingSystem + '\'' +
+                    '}';
+        }
     @Override
     public void turnOn() {
         System.out.println("Telefon:" + producer + " " + model + " włącza się.");

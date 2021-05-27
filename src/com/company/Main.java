@@ -16,14 +16,11 @@ import java.time.LocalDate;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
             Pet dog = new Pet("burek", 16.5, "Azor", null);
             FarmAnimal cow = new FarmAnimal("special", 60.0, "Krówka", null);
 
-
-            Human me = new Human("Piotr", "Mrozek");
-            me.pet = dog;
 
             Car passat = new LPG("vw","Passat",1999,1500.0);
             passat.color = "red";
@@ -32,9 +29,12 @@ public class Main {
             passat.engineVolume = 1.9;
             passat.value = 3000.0;
 
-
-
-            Phone phone = new Phone("Nokia", "3310", 2003,1.5, "Series30+");
+            Phone phone = new Phone("Nokia",
+                    "3310",
+                    2003,
+                    300.0,
+                    1.5,
+                    "Series30+");
 
             dog.feed();
             cow.feed();
@@ -64,6 +64,17 @@ public class Main {
             app.add("Discord");
 
             phone.installAnApp(app);
+
+            Human krzysztof = new Human("Krzysztof", "Bala", 3);
+            krzysztof.setSalary(5_000_000.00);
+            krzysztof.setCar(tesla, 0);
+            krzysztof.setCar(bmw, 1);
+            krzysztof.setCar(clio, 2);
+
+
+            System.out.println(krzysztof.getGarageValue());
+            System.out.println(krzysztof.sortGarageProductionYear());
+
 
     }
 }
