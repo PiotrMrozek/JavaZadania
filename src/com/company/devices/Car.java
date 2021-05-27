@@ -3,9 +3,8 @@ package com.company.devices;
 
     import com.company.creatures.Human;
     import com.company.salleable;
-    public class Car extends Device implements salleable {
-
-    public final int id;
+    import java.time.LocalDate;
+    public abstract class Car extends Device implements salleable {
 
     public String color;
     public Double mileage;
@@ -13,37 +12,17 @@ package com.company.devices;
     public Double value;
     public int horsepower;
 
-    public Car(String producer, String model, int yearOfProduction, int id) {
-        super(producer, model, yearOfProduction);
-        this.id = id;
+        public Car(String producer, String model, int yearOfProduction, Double value) {
+            super(producer, model, yearOfProduction);
+        this.value = value;
 
     }
-    public String toString() {
-        return id+" "+producer+" "+model+" "+yearOfProduction+" "+mileage+ " " + horsepower+" "+color+" "+ engineVolume+" "+value;
-    }
+    //public String toString() {
+        //return id+" "+producer+" "+model+" "+yearOfProduction+" "+mileage+ " " + horsepower+" "+color+" "+ engineVolume+" "+value;
+
     @Override
     public void turnOn() {
         System.out.println("Samochód:" + producer + " " + model + "został odpalony");
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Car car = (Car) o;
-        return id == car.id &&
-                model.equals(car.model) && mileage.equals(car.mileage) && horsepower == car.horsepower && color.equals(car.color) && engineVolume.equals(car.engineVolume) &&
-                value.equals(car.value) &&
-                producer.equals(car.producer);
-    }
-
-    @Override
-    public int hashCode() {
-        return id;
     }
 
     @Override
@@ -62,5 +41,5 @@ package com.company.devices;
             System.out.println("Kupiłeś samochód za: " + price);
         }
     }
-
+        public abstract void refuel();
 }
