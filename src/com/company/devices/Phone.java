@@ -5,7 +5,6 @@ package com.company.devices;
     import java.net.MalformedURLException;
     import java.net.URL;
     import java.util.List;
-    import java.time.LocalDate;
 
     public class Phone extends Device implements salleable {
 

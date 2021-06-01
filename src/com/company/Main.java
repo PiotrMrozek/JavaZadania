@@ -2,7 +2,6 @@ package com.company;
 
 import com.company.creatures.FarmAnimal;
 import com.company.creatures.Pet;
-import com.company.creatures.Animal;
 import com.company.creatures.Human;
 import com.company.devices.Car;
 import com.company.devices.Phone;
@@ -11,7 +10,6 @@ import com.company.devices.Electric;
 import com.company.devices.LPG;
 import java.util.ArrayList;
 import java.util.List;
-import java.time.LocalDate;
 
 
 public class Main {
@@ -65,15 +63,28 @@ public class Main {
 
             phone.installAnApp(app);
 
-            Human krzysztof = new Human("Krzysztof", "Bala", 3);
-            krzysztof.setSalary(5_000_000.00);
-            krzysztof.setCar(tesla, 0);
-            krzysztof.setCar(bmw, 1);
-            krzysztof.setCar(clio, 2);
+
+            Human krzysztof = new Human("Krzysztof", "Bala",4 );
+            krzysztof.setSalary(1000000.0);
+            krzysztof.cash = 5000000.0;
+
+            Human human = new Human ("Piotr","Mrozek", 2);
+            human.setSalary(1000000.0);
+            human.cash = 5000000.0;
+            human.addCar(bmw);
 
 
-            System.out.println(krzysztof.getGarageValue());
-            System.out.println(krzysztof.sortGarageProductionYear());
+            System.out.println("Bmw transakcje: " + bmw.howManyTransactions());
+
+
+            bmw.sell(human, krzysztof, 10000.0);
+
+            System.out.println("Tesla transakcje: " + tesla.howManyTransactions());
+            System.out.println("Bmw transakkcje: " + bmw.howManyTransactions());
+
+            System.out.println("Czy human był właścicielem bmw: " + bmw.wasEverOwner(human));
+            System.out.println("Czy Krysztof sprzedał bmw human: " + bmw.SoldBy(human, krzysztof));
+            System.out.println("Czy human sprzedał bmw Krzysztof: " + bmw.SoldBy(krzysztof, human));
 
 
     }

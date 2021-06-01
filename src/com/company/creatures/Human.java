@@ -101,6 +101,8 @@ import java.time.format.DateTimeFormatter;
             for (int i = 0; i < garage.length; i++){
                 if (this.garage[i] == null){
                     this.garage[i] = newCar;
+                    newCar.owners.add(this);
+                    return;
                 }
             }
         }

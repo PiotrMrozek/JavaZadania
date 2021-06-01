@@ -1,7 +1,5 @@
 package com.company.devices;
 
-import java.time.LocalDate;
-
 public class LPG extends Car{
 
     public LPG(String producer, String model, int yearOfProduction, Double value) {
